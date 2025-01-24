@@ -1,5 +1,7 @@
 # mcp-server-collector MCP server
 
+[![smithery badge](https://smithery.ai/badge/mcp-server-collector)](https://smithery.ai/server/mcp-server-collector)
+
 A MCP Server used to collect MCP Servers over the internet.
 
 ## Components
@@ -94,6 +96,14 @@ On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
   }
   ```
 </details>
+
+### Installing via Smithery
+
+To install Server Collector for Claude Desktop automatically via [Smithery](https://smithery.ai/server/mcp-server-collector):
+
+```bash
+npx -y @smithery/cli install mcp-server-collector --client claude
+```
 
 ## Development
 

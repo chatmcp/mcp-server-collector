@@ -1,0 +1,29 @@
+# Smithery configuration file: https://smithery.ai/docs/config#smitheryyaml
+
+startCommand:
+  type: stdio
+  configSchema:
+    # JSON Schema defining the configuration options for the MCP.
+    type: object
+    required:
+      - openaiApiKey
+      - openaiBaseUrl
+      - openaiModel
+      - mcpServerSubmitUrl
+    properties:
+      openaiApiKey:
+        type: string
+        description: Your OpenAI API key.
+      openaiBaseUrl:
+        type: string
+        description: The base URL for the OpenAI API.
+      openaiModel:
+        type: string
+        description: The OpenAI model to use.
+      mcpServerSubmitUrl:
+        type: string
+        description: The URL to submit MCP servers.
+  commandFunction:
+    # A function that produces the CLI command to start the MCP on stdio.
+    |-
+    config => ({ command: 'uv', args: ['run', 'mcp-server-collector'], env: { OPENAI_API_KEY: config.openaiApiKey, OPENAI_BASE_URL: config.openaiBaseUrl, OPENAI_MODEL: config.openaiModel, MCP_SERVER_SUBMIT_URL: config.mcpServerSubmitUrl } })
